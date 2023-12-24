@@ -1,61 +1,101 @@
-const nombreUsuario = prompt("Hola! Bienvenid@ a TecnoBoutique Tienda Virtual! Por favor, indica tu nombre para que te registremos en nuestra base de datos.");
 
-alert(`¡Hola ${nombreUsuario}! Gracias por iniciar sesión, a ccontinuación vas a poder elegir entre todos los productos de nuestro catálogo para poder comprar.`);
+function Producto(id, nombre, precio) {
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = precio;
+}
 
-
-const productos = [
-    { id: 1, nombre: "Apple Macbook Air M2 480GB", precio: 2000000 },
-    { id: 2, nombre: "Apple Iphone 15 128GB", precio: 1300000 },
-    { id: 3, nombre: "Apple Iphone 15 PRO 256GB", precio: 1250000 },
-    { id: 4, nombre: "Apple Ipad M2 Air 512GB", precio: 900000 },
-    { id: 5, nombre: "Apple Ipad Air Pro 1TB", precio: 1120000 },
-    { id: 6, nombre: "Apple Watch Series 7 Water R.", precio: 509000 },
-    { id: 7, nombre: "Samsung Galaxy Book Pro 360°", precio: 1200000 },
-    { id: 8, nombre: "Samsung Galaxy Book Pro", precio: 1125000 },
-    { id: 9, nombre: "Samsung Galaxy Book", precio: 900000 },
-    { id: 10, nombre: "Samsung Galaxy S23 ULTRA", precio: 999999 },
-    { id: 11, nombre: "Samsung Galaxy S23 128GB", precio: 870000 },
-    { id: 12, nombre: "Samsung Galaxy S23 FE", precio: 540000 }
-];
-
-function mostrarProductos() {
-    console.log("Productos que la rompen:");
+function mostrarProductos(productos) {
+    console.log("Productos disponibles:");
     for (const producto of productos) {
         console.log(`${producto.id}. ${producto.nombre} - $${producto.precio}`);
     }
 }
 
-function calcularTotal(producto, cantidad) {
-    return producto.precio * cantidad;
-}
 
-function despedidaPiola() {
-    console.log("Gracias por ver nuestra tienda virtual, te pedimos disculpas por las molestias ocasionadas...");
-}
-
-mostrarProductos();
-
-const listaProductos = productos.map(producto => `${producto.id}. ${producto.nombre} - $${producto.precio}`).join("\n");
-
-const idProductoElegido = parseInt(prompt(`Acá tenés la lista de productos con sus precios:\n${listaProductos}\nElegí el número del producto que querés comprar:`));
-
-const productoElegido = productos.find(producto => producto.id === idProductoElegido);
-
-if (productoElegido) {
-
-    alert(`Elegiste ${productoElegido.nombre} - $${productoElegido.precio} por unidad.`);
-
-    const cantidad = parseInt(prompt(`¿Cuántos ${productoElegido.nombre} querés comprar?:`));
-
-    const total = calcularTotal(productoElegido, cantidad);
-
-    alert(`Resumen de la compra:\n${productoElegido.nombre} x ${cantidad} = $${total.toFixed(2)}`);
-} else {
-
-    alert("El producto no existe. Por favor, elegí uno que esté en la lista.");
+function buscarProductoPorId(productos, id) {
+    return productos.find(producto => producto.id === id);
 }
 
 
-alert("Disculpá, pero por ahora no podemos procesar tu compra porque estamos construyendo el sitio. ¡Volvé pronto!");
+function filtrarProductosPorPrecio(productos, precioMaximo) {
+    return productos.filter(producto => producto.precio <= precioMaximo);
+}
 
-despedidaPiola();
+
+
+function simularCompra(productos) {
+    let carrito = [];
+
+    do {
+        const idProductoElegido = parseInt(prompt(`Productos disponibles:\n${productos.map(p => `${p.id}. ${p.nombre} - $${p.precio}`).join("\n")}\n\nElegí el número del producto que querés comprar:`));
+        const productoElegido = buscarProductoPorId(productos, idProductoElegido);
+
+        if (productoElegido) {
+            alert(`Elegiste ${productoElegido.nombre} - $${productoElegido.precio} por unidad.`);
+
+            const cantidad = parseInt(prompt(`¿Cuántos ${productoElegido.nombre} querés comprar?:`));
+
+            const total = productoElegido.precio * cantidad;
+
+            alert(`Resumen de la compra:\n${productoElegido.nombre} x ${cantidad} = $${total.toFixed(2)}`);
+
+            
+            carrito.push({
+                producto: productoElegido,
+                cantidad: cantidad,
+                total: total
+            });
+
+            
+            const agregarOtro = confirm("¿Querés agregar otro producto al carrito?");
+            if (!agregarOtro) {
+                break;
+            }
+        } else {
+            
+            alert("La opción ingresada no es válida. Por favor, elige un producto válido.");
+        }
+    } while (true);
+
+    
+    console.log("Resumen del Carrito:");
+    for (const item of carrito) {
+        console.log(`${item.producto.nombre} x ${item.cantidad} = $${item.total.toFixed(2)}`);
+    }
+
+    
+    alert("¡Gracias por tu compra! Esperamos que disfrutes de tus productos.");
+
+}
+
+
+function iniciarSimulador() {
+
+    const productos = [
+        new Producto(1, "Apple Macbook Air M2 480GB", 2000000),
+        new Producto(2, "Apple Iphone 15 128GB", 1300000),
+        new Producto(3, "Apple Iphone 15 PRO 256GB", 1250000),
+        new Producto(4, "Apple Ipad M2 Air 512GB", 900000),
+        new Producto(5, "Apple Ipad Air Pro 1TB", 1120000),
+        new Producto(6, "Apple Watch Series 7 Water R.", 509000),
+        new Producto(7, "Samsung Galaxy Book Pro 360°", 1200000),
+        new Producto(8, "Samsung Galaxy Book Pro", 1125000),
+        new Producto(9, "Samsung Galaxy Book", 900000),
+        new Producto(10, "Samsung Galaxy S23 ULTRA", 999999),
+        new Producto(11, "Samsung Galaxy S23 128GB", 870000),
+        new Producto(12, "Samsung Galaxy S23 FE", 540000)
+    ];
+
+
+    mostrarProductos(productos);
+
+
+    simularCompra(productos);
+
+
+    console.log("Gracias por usar el Simulador de Compras. ¡Hasta luego!");
+}
+
+
+iniciarSimulador();
