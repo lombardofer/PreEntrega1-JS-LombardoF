@@ -46,8 +46,6 @@ const productos = [
     actualizarCarritoDOM();
   }
   
-  // cargar el carrito anterior desde el local //
-  
   function cargarCarrito() {
     const carrito = obtenerCarrito();
     carrito.forEach(producto => {
@@ -57,19 +55,13 @@ const productos = [
     });
   }
   
-  // obtener el carrito anterior desde el local //
-  
   function obtenerCarrito() {
     return JSON.parse(localStorage.getItem('carrito')) || [];
   }
-  
-  // función que guarda el carrito en local //
 
   function guardarCarrito(carrito) {
     localStorage.setItem('carrito', JSON.stringify(carrito));
   }
-  
-  // función para actualizar el carrito  en un nuevo inicio directamente en el DOM //
 
   function actualizarCarritoDOM() {
     const listaCarrito = document.getElementById('lista-carrito');
