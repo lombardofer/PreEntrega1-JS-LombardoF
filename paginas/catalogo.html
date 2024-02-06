@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulador ECOMMERCE | PRIMERA PREENTREGA | CODERHOUSE | VENTA DE PRODUCTOS TECNOLÓGICOS</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
@@ -32,24 +32,22 @@
   </header>
 
   <main>
-    <div id="productos">
-      <h1>TechnoBoutique Online</h1>
-      <h2>Lista de productos en Stock</h2>
-      <ul id="lista-productos"></ul>
+    
+    <div class="contenedor">
+      <div class="carrito" id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="lista-carrito"></ul>
+        <div class="botones-carrito">
+          <button onclick="finalizarCompra()"><a href="./purchase.html">Finalizar Compra</a></button>
+          <button onclick="vaciarCarrito()"><a href="#">Vaciar Carrito</a></button>
+        </div>
+      </div>
+    
+      <div class="productos">
+        <h2>Productos</h2>
+        <ul id="lista-productos" class="lista-flex"></ul>
+      </div>
     </div>
-    
-    <button onclick="verCarrito()">
-      <img src="../img/cart-icon.png" alt="Carrito" width="20" height="20">
-      Ver Carrito
-    </button>
-    
-    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
-    
-    <div id="carrito" style="display: none;">
-      <h2>Carrito de Compras</h2>
-      <ul id="lista-carrito"></ul>
-    </div>
-  </main>
 
   <footer>
     <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
