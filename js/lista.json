@@ -1,0 +1,104 @@
+[
+    { 
+      "id": 1, 
+      "nombre": "Apple Macbook Air M2 480GB", 
+      "precio": 2000000, 
+      "imagen": "../img/producto1.png"
+    },
+    {
+      "id": 2,
+      "nombre": "Apple Iphone 15 128GB",
+      "imagen": "../img/producto3.png",
+      "precio": 1300000
+    },
+    {
+      "id": 3,
+      "nombre": "Apple Iphone 15 PRO 256GB",
+      "imagen": "../img/producto2.png",
+      "precio": 1250000
+    },
+    {
+      "id": 4,
+      "nombre": "Apple Ipad M2 Air 512GB",
+      "imagen": "../img/producto4.png",
+      "precio": 900000
+    },
+    {
+      "id": 5,
+      "nombre": "Apple Ipad Air Pro 1TB",
+      "imagen": "../img/producto5.png",
+      "precio": 1120000
+    },
+    {
+      "id": 6,
+      "nombre": "Apple Watch Series 7",
+      "imagen": "../img/producto6.png",
+      "precio": 509000
+    },
+    {
+      "id": 7,
+      "nombre": "Samsung Galaxy Book Pro 360°",
+      "imagen": "../img/producto7.png",
+      "precio": 1200000
+    },
+    {
+      "id": 8,
+      "nombre": "Samsung Galaxy Book Pro",
+      "imagen": "../img/producto8.png",
+      "precio": 1125000
+    },
+    {
+      "id": 9,
+      "nombre": "Samsung Galaxy Book 3",
+      "imagen": "../img/producto10.png",
+      "precio": 900000
+    },
+    {
+      "id": 10,
+      "nombre": "Samsung Galaxy S23 ULTRA",
+      "imagen": "../img/producto8.png",
+      "precio": 1000
+    },
+    {
+      "id": 11,
+      "nombre": "Google Home Pro",
+      "imagen": "../img/producto11.png",
+      "precio": 999999
+    },
+    {
+      "id": 12,
+      "nombre": "Alexa Echo Dot",
+      "imagen": "../img/producto13.png",
+      "precio": 130000
+    },
+    {
+      "id": 13,
+      "nombre": "JBL GO 3 SPEAKER",
+      "imagen": "../img/producto12.png",
+      "precio": 50000
+    },
+    {
+      "id": 14,
+      "nombre": "Apple Airpods 2dn Gen",
+      "imagen": "../img/producto14.png",
+      "precio": 100000
+    },
+    {
+      "id": 15,
+      "nombre": "Lavarropas Samsung WW95 Inverter",
+      "imagen": "../img/producto15.png",
+      "precio": 863999
+    },
+    {
+      "id": 16,
+      "nombre": "Heladera Samsung Inverter NoFrost",
+      "imagen": "../img/producto16.png",
+      "precio": 1044560
+    },
+    {
+      "id": 17,
+      "nombre": "Laptop gaming Legion 5i 6",
+      "imagen": "../img/producto17.png",
+      "precio": 2009831
+    }
+]
